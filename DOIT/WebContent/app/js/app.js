@@ -11,9 +11,19 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
-  $routeProvider.when('/view1', {templateUrl: 'partials/view1.html', controller: 'MyCtrl1'});
-}]);
+	  //$locationProvider.html5Mode(true);
+	  $routeProvider.when('/view1', {
+	      templateUrl: 'partials/view1.html',
+	      controller: 'ProjectDetails'
+	    }).
+	    when('/view2', {
+	      templateUrl: 'partials/view2.html',
+	      controller: 'ProjectList'
+	    }).
+	    otherwise({
+	      redirectTo: '/view1'
+	    });
+	}]);
 
 angular.module('myApp').constant('appSettings', {
   AppURI: 'http://127.0.0.1:9080/'

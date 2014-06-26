@@ -1,3 +1,28 @@
 <div class="jumbotron">
   <p ng-bind="message"></p>
 </div>
+<div class="row">
+<div class="col-md-12">
+<table  class="table table-bordered">
+	<thead>
+	<tr>	
+		<th>Project Name</th>
+		<th>Description</th>
+		<th>Collaborators</th>
+		<th>Select</th>
+	
+	</tr>
+	</thead>
+	<tr ng-repeat="project in projects">
+		<td>{{project.name}}</td>
+		<td>{{project.description}}</td>
+		<td ><span ng-repeat="coordinator in project.coordinators">
+			{{coordinator}} <span ng-show="!$last">, </span> 
+			</span>
+		</td>
+		<td><input type="radio"  ></td>
+	
+	</tr>
+</table>
+</div>
+</div>
