@@ -32,7 +32,9 @@ angular.module('myApp.controllers', [])
     $scope.message = "Hello This message is from View 2";
        $scope.projects1= [
                      {   "name"  : "Hu-Assignment1",
-                    	 "coordinators": ["Rahul","Nagarjun"],
+                    	 "coordinators": {"coordinatorName":"Rahul",
+                    		 				"coordinatorImage":"../img/1.jpg"
+                    		 				},
                     	 "description": " First assignment for demo purpose",
                     	 "tasks":[
 								{
@@ -83,6 +85,47 @@ angular.module('myApp.controllers', [])
 					}
 				
 			}
-  }]);
+  }])
 
  
+
+.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
+
+	  $scope.items = ['item1', 'item2', 'item3'];
+
+	  $scope.open = function (size) {
+
+	    var modalInstance = $modal.open({
+	      templateUrl: 'myModalContent.html',
+	      controller: ModalInstanceCtrl,
+	      size: size,
+	      resolve: {
+	        items: function () {
+	          return $scope.items;
+	        }
+	      }
+	    });
+
+	    modalInstance.result.then(function (selectedItem) {
+	      $scope.selected = selectedItem;
+	    }, function () {
+	      $log.info('Modal dismissed at: ' + new Date());
+	    });
+	  };
+	}
+),
+ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+
+	  $scope.items = items;
+	  $scope.selected = {
+	    item: $scope.items[0]
+	  };
+
+	  $scope.ok = function () {
+	    $modalInstance.close($scope.selected.item);
+	  };
+
+	  $scope.cancel = function () {
+	    $modalInstance.dismiss('cancel');
+	  };
+	};

@@ -1,14 +1,17 @@
+
+
+
 <div class="jumbotron">
   <p ng-bind="message"></p>
 </div>
 
 <div class="row">
 <div class="col-md-12">
-<table  class="table table-bordered " >
+<table  class="container table table-bordered " >
 	<thead>
 	<tr>	
 		
-		
+
 		<th>Collaborators</th>
 		<th>Description</th>
 		<th>Task DeadLines</th>
@@ -19,8 +22,8 @@
 	 
 		 <tr>
 			<td >
-				<div ng-repeat="coordinator in details.coordinators">
-					<p>{{coordinator}}</p>
+				<div><p>{{details.coordinators.coordinatorName}}</p>
+					<p><img src="{{details.coordinators.coordinatorImage}}"></p>
 				</div>
 			</td>
 			<td ><div ng-repeat="task in details.tasks">
