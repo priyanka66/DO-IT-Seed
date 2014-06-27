@@ -4,29 +4,39 @@
 
 <div class="row">
 <div class="col-md-12">
-<table  class="table table-bordered">
+<table  class="table table-bordered " >
 	<thead>
 	<tr>	
-		<th>Project Name</th>
-		<th>Description</th>
+		
+		
 		<th>Collaborators</th>
-		<th>Select</th>
+		<th>Description</th>
+		<th>Task DeadLines</th>
 	
 	</tr>
 	</thead>
-	<tr ng-repeat="project_detail in details">
-		<td>{{project_detail.name}}</td>
-		<td>{{project_detail.description}}</td>
-		<td ><span ng-repeat="coordinator in project_detail.coordinators">
-			{{coordinator}} <span ng-show="!$last">, </span> 
-			</span>
-		</td>
-		<td><div class="radio">
-		<a href="#/view2/{{project_detail.name}}"> <input id="checkSlave" type="radio"> </a>
-		</td>
-		</div>
-		
-	</tr>
+
+	 
+		 <tr>
+			<td >
+				<div ng-repeat="coordinator in details.coordinators">
+					<p>{{coordinator}}</p>
+				</div>
+			</td>
+			<td ><div ng-repeat="task in details.tasks">
+			<p>	{{task.taskName}}</p>
+			<p>	{{task.taskDescription}}</p> 
+			</div>
+			</td>
+			
+			<td ><div ng-repeat="task in details.tasks">
+			<p>	Assigned To :{{task.assignedTo}}</p>
+			<p>	Created On :{{task.createdOn}}</p>
+			<p> Due Date :{{task.dueDate}}</p>  
+			</td>		
+			
+		</tr>
+	
 </table>
 </div>
 </div>
