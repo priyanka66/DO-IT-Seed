@@ -16,7 +16,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
 	      templateUrl: 'partials/view1.html',
 	      controller: 'ProjectDetails'
 	    }).
-	    when('/view2', {
+	    when('/view2/:name', {
 	      templateUrl: 'partials/view2.html',
 	      controller: 'ProjectList'
 	    }).
