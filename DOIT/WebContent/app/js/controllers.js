@@ -31,28 +31,34 @@ angular.module('myApp.controllers', [])
   .controller('ProjectList', ['$scope','$routeParams', function($scope,$routeParams) {
     $scope.message = "Hello This message is from View 2";
        $scope.projects1= [
-                     {   "name"  : "Hu-Assignment1",
-                    	 "coordinators": {"coordinatorName":"Rahul",
+                          {   "name"  : "Hu-Assignment1",
+                        	  "coordinators":[ {"coordinatorName":"Rahul",
                     		 				"coordinatorImage":"../img/1.jpg"
                     		 				},
+                    		 				 {"coordinatorName":"Rahul",
+                        		 				"coordinatorImage":"../img/1.jpg"
+                        		 			}
+                    		 				],
                     	 "description": " First assignment for demo purpose",
                     	 "tasks":[
 								{
 									"taskName" : "Create index page",
 									"taskDescription" : "Create a home page for the project",
-									"priority" : "0",
+									"priority" : "Showstopper",
 									"assignedTo" : "Priyanka",
 									"dueDate" : 	"29/06/2014",
-									"createdOn" : "27/06/2014"
+									"createdOn" : "27/06/2014",
+									"status"	: "completed"
 								},
 
 								{
 									"taskName" : "Improve UI & UX",
 									"taskDescription" : "Create more pleasing UI",
-									"priority" : "2",
+									"priority" : "Low",
 									"assignedTo" : "Priyanka",
 									"dueDate" : "01/07/2014",
-									"createdOn" : "27/06/2014"
+									"createdOn" : "27/06/2014",
+									"status" : "pending"
 								}
 							]
                     	 
@@ -85,7 +91,7 @@ angular.module('myApp.controllers', [])
 					}
 				
 			}
-  }])
+  }]);
 
  
 
@@ -132,3 +138,4 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
 	    $modalInstance.dismiss('cancel');
 	  };
 	};
+	

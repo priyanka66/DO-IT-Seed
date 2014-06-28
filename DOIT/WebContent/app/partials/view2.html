@@ -1,45 +1,63 @@
-
-
-
-
-
-<div class="container">
-<div class="col-md-12">
-<table  class="table table-bordered " >
-	<thead>
-	<tr>	
-		
-
-		<th>Collaborators</th>
-		<th>Description</th>
-		<th>Task DeadLines</th>
-	
-	</tr>
-	</thead>
-
-	 
-		 <tr>
-			<td >
-				<div>
-					<p><img src="{{details.coordinators.coordinatorImage}}" width ="50px" height="50px"/></p>
-					<p>{{details.coordinators.coordinatorName}}</p>
+<div class="container borders">
+	<div class="col-md-12 col-sm-12 ">
+		<div class ="col-md-4">
+			<h3><span style="color"":"black" ;"font-weight":"bold">Collaborators</span>
+    		</h3>
+    	</div>
+		 <div class="col-md-5 ">
+		    <h3 class="liketext"><span style="color":"black";"font-weight":"bold;">Fliters</span>
+		    </h3>
+				<div class="btn-group gap">
+		 			<button class="btn btn-default shift" ng-click="taskFilter = {priority: 'Showstopper'}">Showstopper</button>
+	      			<button class="btn btn-default " ng-click="taskFilter = {priority: 'High'}">High</button>
+	      			<button class="btn btn-default " ng-click="taskFilter = {priority: 'Medium'}">Medium</button>
 				</div>
-			</td>
-			
-			<td><div ng-repeat="task in details.tasks">
-			<p>	{{task.taskName}}</p>
-			<p>	{{task.taskDescription}}</p>
-			</div>
-			</td>
-			</div>
-			<td ><div ng-repeat="task in details.tasks">
-			<p>	Assigned To :{{task.assignedTo}}</p>
-			<p>	Created On :{{task.createdOn}}</p>
-			<p> Due Date :{{task.dueDate}}</p>  
-			</td>		
-			
-		</tr>
-	
-</table>
+		</div>
+		<div class="col-md-4 ">
+		<h3><span style="color":"black";"font-weight":"bold">Task Deadlines</span></h3>
+		</div>
+	</div>
 </div>
+
+ 
+<div class="row">  
+    <div class="col-md-12 ">    
+    	<div class="col-md-4 ">    
+    		<div class="col-md-4 ">
+    			<span ng-repeat="coordinator in details.coordinators ">
+      			<br/>
+          	 		<span><img src="{{coordinator.coordinatorImage}}" width="50px" height : "50px"/></span>
+      			</span>      
+    		</div>
+    	<div class="col-md-4 ">
+    		    <span ng-repeat="coordinator in details.coordinators">	
+				<span>{{coordinator.coordinatorName}}</span>					
+			</span>      
+    	</div>      
+    </div>     
+    
+    <div class="col-md-5">
+      <div class="col-md-2 ">,
+    	  <span ng-repeat="coordinator in details.tasks | filter:taskFilter ">
+      		<br>
+      			<span><img ng-src="{{coordinator.status}}"></span>
+      		</span>
+    </div>    
+    
+    <div class="col-md-10 ">
+    	<span ng-repeat="coordinator in details.tasks | filter:taskFilter ">			
+			<span>{{coordinator.description}}</span>		     
+		</span>		
+    </div>
+    </div>
+    
+    <div class="col-md-3">
+        <span ng-repeat="coordinator in details.tasks | filter:taskFilter">
+   			<span>Created Date:{{coordinator.createdOn}}</span>
+   			 <span>Due Date:{{coordinator.dueDate}}</span>
+				<span>Assign To:{{coordinator.assignTo}}</span>
+  	  	</span>    
+    </div>      
+    </div>   
+  </div>
 </div>
