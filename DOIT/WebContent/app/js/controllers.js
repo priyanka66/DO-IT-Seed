@@ -89,7 +89,7 @@ angular.module('myApp.controllers', [])
 
  
 
-.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
+var ModalDemoCtrl = function ($scope, $modal, $log) {
 
 	  $scope.items = ['item1', 'item2', 'item3'];
 
@@ -112,9 +112,12 @@ angular.module('myApp.controllers', [])
 	      $log.info('Modal dismissed at: ' + new Date());
 	    });
 	  };
-	}
-),
-ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+	};
+
+	// Please note that $modalInstance represents a modal window (instance) dependency.
+	// It is not the same as the $modal service used above.
+
+	var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 
 	  $scope.items = items;
 	  $scope.selected = {
