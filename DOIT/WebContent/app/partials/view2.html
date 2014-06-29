@@ -26,21 +26,18 @@
     		<div class="col-md-4 ">
     			<span ng-repeat="coordinator in details.coordinators ">
       			<br/>
+      				<h4><span>{{coordinator.coordinatorName}}</span></h4>
           	 		<span><img src="{{coordinator.coordinatorImage}}" width="50px" height : "50px"/></span>
       			</span>      
     		</div>
-    	<div class="col-md-4 ">
-    		    <span ng-repeat="coordinator in details.coordinators">	
-				<span>{{coordinator.coordinatorName}}</span>					
-			</span>      
-    	</div>      
+    	
     </div>     
     
     <div class="col-md-5">
       <div class="col-md-2 ">,
     	  <span ng-repeat="coordinator in details.tasks | filter:taskFilter ">
       		<br>
-      			<span><img ng-src="{{coordinator.status}}"></span>
+      		<h3><span><img src="{{coordinator.status}}"></span></h3>
       		</span>
     </div>    
     

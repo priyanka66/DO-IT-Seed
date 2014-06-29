@@ -3,7 +3,7 @@
       <span ng-class="{task.isComplete: 'glyphicon glyphicon-star', task.isClosed: 'glyphicon glyphicon-close'}"></span>
       <small>Pending</small>
     </div>
-    <div class="col-sm-11">
+    <div class="col-sm-11">	
         <div class="col-sm-8">
           <a href="#">
             <span ng-bind="task.task"></span>
@@ -24,14 +24,15 @@
                 <span ng-bind="getContributorName(task.assignedTo)"></span>
               </li>
               <li>
-                <strong>Created At:</strong>
+                <strong>Created On:</strong>
                 &nbsp;
-                <span ng-bind="task.createdAt"></span>
+                <span ng-bind="task.createdOn"></span>
               </li>
               <li>
                 <strong>Due Date:</strong>
                 &nbsp;
                 <span ng-bind="task.dueDate"></span>
+                <br/>
               </li>
             </ul>
         </div>

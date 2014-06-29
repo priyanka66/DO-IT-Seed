@@ -8,12 +8,12 @@ angular.module('myApp.controllers', [])
     $scope.projects= [
                      {   "name"  : "Hu-Assignment1",
                          "description": " First assignment for demo purpose",
-                         "coordinators": ["Rahul","Nagarjun"]
+                         "coordinators": ["Chandan","Vaibhav"]
                      },
                      {
                     	 "name"  : "Hu-Assignment2",
                          "description": " Random description about sijs, issovosdv",
-                         "coordinators": ["Rahul","Nagarjun","Vaibhav"]
+                         "coordinators": ["Shubi","Anjali","Vaibhav"]
                      },
                      {
                     	 "name"  : "Hu-Assignment3",
@@ -32,53 +32,105 @@ angular.module('myApp.controllers', [])
     $scope.message = "Hello This message is from View 2";
        $scope.projects1= [
                           {   "name"  : "Hu-Assignment1",
-                        	  "coordinators":[ {"coordinatorName":"Rahul",
-                    		 				"coordinatorImage":"../img/1.jpg"
+                        	  "coordinators":[ {"coordinatorName":"Chandan",
+                    		 					"coordinatorImage":"../img/1.jpg"
                     		 				},
-                    		 				 {"coordinatorName":"Rahul",
+                    		 				 {"coordinatorName":"Vaibhav",
                         		 				"coordinatorImage":"../img/1.jpg"
                         		 			}
                     		 				],
                     	 "description": " First assignment for demo purpose",
                     	 "tasks":[
-								{
+								{	
 									"taskName" : "Create index page",
 									"taskDescription" : "Create a home page for the project",
 									"priority" : "Showstopper",
 									"assignedTo" : "Priyanka",
 									"dueDate" : 	"29/06/2014",
 									"createdOn" : "27/06/2014",
-									"status"	: "completed"
+									"status"	: "../img/complete.png"
 								},
 
 								{
 									"taskName" : "Improve UI & UX",
 									"taskDescription" : "Create more pleasing UI",
-									"priority" : "Low",
-									"assignedTo" : "Priyanka",
+									"priority" : "Medium",
+									"assignedTo" : "Saurav",
 									"dueDate" : "01/07/2014",
 									"createdOn" : "27/06/2014",
-									"status" : "pending"
+									"status" : "../img/pending.jpg"
 								}
 							]
                     	 
                          
                      },
-                     {
-                    	 "name"  : "Hu-Assignment2",
-                         "description": " Random description about sijs, issovosdv",
-                         "coordinators": ["Rahul","Nagarjun","Vaibhav"]
-                     },
-                     {
-                    	 "name"  : "Hu-Assignment3",
-                         "description": " First assignment for demo purpose",
-                         "coordinators": ["Rahul","Anurag"]
-                     },
-                     {
-                    	 "name"  : "Hu-Assignment4",
-                         "description": " First assignment for demo purpose",
-                         "coordinators": ["Rahul","Nagarjun"]
-                     }
+                     {   "name"  : "Hu-Assignment2",
+                   	  "coordinators":[ {"coordinatorName":"shubhi",
+               		 					"coordinatorImage":"../img/1.jpg"
+               		 				},
+               		 				 {"coordinatorName":"Anjali",
+                   		 				"coordinatorImage":"../img/1.jpg"
+                   		 			}
+               		 				],
+               	 "description": " First assignment for demo purpose",
+               	 "tasks":[
+							{	
+								"taskName" : "Create index page",
+								"taskDescription" : "Create a home page for the project",
+								"priority" : "Showstopper",
+								"assignedTo" : "Priyanka",
+								"dueDate" : 	"29/06/2014",
+								"createdOn" : "27/06/2014",
+								"status"	: "../img/complete.png"
+							},
+
+							{
+								"taskName" : "Improve UI & UX",
+								"taskDescription" : "Create more pleasing UI",
+								"priority" : "Low",
+								"assignedTo" : "Priyanka",
+								"dueDate" : "01/07/2014",
+								"createdOn" : "27/06/2014",
+								"status" : "../img/pending.jpg"
+							}
+						]
+               	 
+                    
+                },
+                {   "name"  : "Hu-Assignment3",
+              	  "coordinators":[ {"coordinatorName":"Rahul",
+          		 					"coordinatorImage":"../img/1.jpg"
+          		 				},
+          		 				 {"coordinatorName":"Rahul",
+              		 				"coordinatorImage":"../img/1.jpg"
+              		 			}
+          		 				],
+          	 "description": " First assignment for demo purpose",
+          	 "tasks":[
+						{	
+							"taskName" : "Create index page",
+							"taskDescription" : "Create a home page for the project",
+							"priority" : "Showstopper",
+							"assignedTo" : "Priyanka",
+							"dueDate" : 	"29/06/2014",
+							"createdOn" : "27/06/2014",
+							"status"	: "../img/complete.png"
+						},
+
+						{
+							"taskName" : "Improve UI & UX",
+							"taskDescription" : "Create more pleasing UI",
+							"priority" : "Low",
+							"assignedTo" : "Priyanka",
+							"dueDate" : "01/07/2014",
+							"createdOn" : "27/06/2014",
+							"status" : "../img/pending.jpg"
+						}
+					]
+          	 
+               
+           },
+                     
                  ];
        
       
