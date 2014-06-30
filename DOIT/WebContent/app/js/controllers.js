@@ -53,12 +53,11 @@ angular.module('myApp.controllers', [])
     // It is not the same as the $modal service used above.
 
     var ModalInstanceCtrl = function ($scope, $modalInstance, projects) {
-     // $scope.projects = projects;
+     
       $scope.newProject = {};
       $scope.ok = function () {
-                
-        //prjects.push();
-        /// console.log($scope.newProject.name) ; 
+     
+        
          
          $modalInstance.close({'name':$scope.newProject.name,'description':$scope.newProject.description,'coordinators':[$scope.newProject.coordinators]});
       };
@@ -110,7 +109,7 @@ angular.module('myApp.controllers', [])
                		 					"coordinatorImage":"../img/1.jpg"
                		 				},
                		 				 {"coordinatorName":"Anjali",
-                   		 				"coordinatorImage":"../img/1.jpg"
+                   		 			  "coordinatorImage":"../img/1.jpg"
                    		 			}
                		 				],
                	 "description": " First assignment for demo purpose",
@@ -180,6 +179,44 @@ angular.module('myApp.controllers', [])
 				if($scope.projects1[i].name==$routeParams.name)
 					{
 						$scope.details=$scope.projects1[i];
+						$scope.open = function (size) {
+
+						    var modalInstance = $modal.open({
+						      templateUrl: 'myModalCollaborator.html',
+						      controller: ModalInstanceCtrl,
+						      size: size,
+						      resolve: {
+						        projects1: function () {
+						          return $scope.details;
+						        }
+						      }
+						    });
+
+						    modalInstance.result.then(function (selectedItem) {
+						      $scope.details.push(selectedItem);
+						    }, function () {
+						    });
+						      $log.info('Modal dismissed at: ' + new Date());
+						  };
+
+
+						// Please note that $modalInstance represents a modal window (instance) dependency.
+						// It is not the same as the $modal service used above.
+
+						var ModalInstanceCtrl = function ($scope, $modalInstance, details) {
+						 
+						  $scope.newCollaborator = {};
+						  $scope.ok = function () {
+						 
+						    
+						     
+						     $modalInstance.close({'name':$scope.new.name,'description':$scope.newProject.description,'coordinators':[$scope.newProject.coordinators]});
+						  };
+
+						  $scope.cancel = function () {
+						    $modalInstance.dismiss('cancel');
+							  };
+							};
 						
 					}
 				
@@ -187,51 +224,12 @@ angular.module('myApp.controllers', [])
 		
   }]);
 
- 
+	 
 
-var ModalDemoCtrl = function ($scope, $modal, $log) {
 
-	  $scope.items = ['item1', 'item2', 'item3'];
 
-	  $scope.open = function (size) {
 
-	    var modalInstance = $modal.open({
-	      templateUrl: 'myModalContent.html',
-	      controller: ModalInstanceCtrl,
-	      size: size,
-	      resolve: {
-	        items: function () {
-	          return $scope.items;
-	        }
-	      }
-	    });
 
-	    modalInstance.result.then(function (selectedItem) {
-	      $scope.selected = selectedItem;
-	    }, function () {
-	      $log.info('Modal dismissed at: ' + new Date());
-	    });
-	  };
-	};
-
-	// Please note that $modalInstance represents a modal window (instance) dependency.
-	// It is not the same as the $modal service used above.
-
-	var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-
-	  $scope.items = items;
-	  $scope.selected = {
-	    item: $scope.items[0]
-	  };
-
-	  $scope.ok = function () {
-	    $modalInstance.close($scope.selected.item);
-	  };
-
-	  $scope.cancel = function () {
-	    $modalInstance.dismiss('cancel');
-	  };
-	};
 	var DatepickerDemoCtrl = function ($scope) {
 		  $scope.today = function() {
 		    $scope.dt = new Date();

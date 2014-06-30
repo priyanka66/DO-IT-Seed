@@ -20,54 +20,87 @@
    
 </div>
 -->
+<div class= "container-fluid borders">
+<div ng-controller='ProjectList'>
+    <script type="text/ng-template" id="myModalCollaborator.html">
+        <div class="modal-header">
+            <h3 class="modal-title"> Project Details</h3>
+        </div>
+        
+	<div class="modal-body">
+         <label class="col-md-12"> Name</label>
+			<div class="col-md-9" id="name">
+				<input type="text" class="form-control" id="name"
+					placeholder=" Name" required="required" ng-model="newCollaborator.name" />
+			</div>
+
+			<label class="col-md-12 ">Email</label>
+			<div class="col-md-9">
+				<input type="email" class="form-control" id="email"
+					placeholder="Email" multiple="multiple" ng-model="newCollaborator.description" />
+			</div>
+
+			
+        </div>
+
+        <div class="modal-footer">
+ 				<button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>           
+        </div>
+    </script>
+
+    <button class="btn btn-default"  ng-click="open()">Add Collaborator!</button>
+        
+</div>
+</div>
 <div class="container borders">
 	
-		<div class ="col-md-4">
-			<h3><span style="color"":"black" ;>Collaborators</span>
+		<div class ="col-md-2">
+			<h3><span style="color"="black" ;>Collaborators</span>
     		</h3>
     	</div>
-		 <div class="col-md-5 ">
+		 <div class="col-md-4 ">
 		    <h3 class="liketext"><span style="color":"black";"font-weight":"bold;">Fliters</span>
 		    </h3>
 				<div class="btn-group gap">
 		 			<button class="btn btn-default shift" ng-click="taskFilter = {priority: 'Showstopper'}">Showstopper</button>
 	      			<button class="btn btn-default " ng-click="taskFilter = {priority: 'High'}">High</button>
 	      			<button class="btn btn-default " ng-click="taskFilter = {priority: 'Medium'}">Medium</button>
+	      			<button class="btn btn-default " ng-click="taskFilter = {priority: 'Low'}">Low</button>
 				</div>
 		</div>
-		<div class="col-md-3 ">
-		<h3>Date<input type="date" name="Date"></i></span></h3>
-		</div>
+		
 	</div>
 
  
 <div class="row border: 2px solid;">  
     <div class="col-md-12 ">    
-    	<div class="col-md-4 ">    
+    	<div class="col-md-2">    
     		<div class="col-md-4 ">
     			<span ng-repeat="coordinator in details.coordinators ">
       			<br/>
       				<h4><span>{{coordinator.coordinatorName}}</span></h4>
+      			<div class="col-md-8">
           	 		<span><img src="{{coordinator.coordinatorImage}}" width="50px" height : "50px"/></span>
+          	 		</div>
       			</span>      
-    		</div>
-    	
-    </div>     
+    		</div>    	
+    	</div>     
     
-    <div class="col-md-5">
-      <div class="col-md-2 ">,
-    	  <span ng-repeat="coordinator in details.tasks | filter:taskFilter ">
-      		<br>
-      		<h3><span><img src="{{coordinator.status}}"></span></h3>
-      		</span>
-    </div>    
+  	  <div class="col-md-5">
+    	  <div class="col-md-2 ">,
+    		  <span ng-repeat="coordinator in details.tasks | filter:taskFilter ">
+      			<br>
+      				<h3><span><img src="{{coordinator.status}}"></span></h3>
+      				</span>
+    		</div>    
     
-    <div class="col-md-10 ">
-    	<span ng-repeat="coordinator in details.tasks | filter:taskFilter ">			
-			<span>{{coordinator.description}}</span>		     
-		</span>		
-    </div>
-    </div>
+  			  <div class="col-md-10 ">
+    			<span ng-repeat="coordinator in details.tasks | filter:taskFilter ">			
+					<h4><span>{{coordinator.taskDescription}}</span></h4>		     
+				</span>		
+		    </div>
+   	 	</div>
     
     <div class="col-md-3">
         <span ng-repeat="coordinator in details.tasks | filter:taskFilter">
@@ -80,8 +113,11 @@
 			</h5>
 				<br/>
   	  	</span>    
-    </div>      
+    </div>  
+    <div class="col-md-2 ">
+		<h4>Date<input type="date" name="Due Date" ng-click="taskFilter={priority:'dueDate'}"></i></span></h4>
+		</div>    
     </div>   
+    	
   </div>
  
-</div>
