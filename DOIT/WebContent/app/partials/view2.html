@@ -1,11 +1,11 @@
-<div ng-controller="DatepickerDemoCtrl">
+<!--  <div ng-controller="DatepickerDemoCtrl">
     <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
 
     
     
     <h4>Date</h4>
     <div class="row">
-        <div class="col-md-6" align="right">
+        <div class="col-md-6">
             <p class="input-group" >
               <input type="text" class="form-control" align="right" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
               <span class="input-group-btn" align="right">
@@ -19,11 +19,11 @@
     <hr />
    
 </div>
-
+-->
 <div class="container borders span4">
-	<div class="col-md-12 col-sm-12 ">
+	
 		<div class ="col-md-4">
-			<h3><span style="color"":"black" ;"font-weight":"bold">Collaborators</span>
+			<h3><span style="color"":"black" ;>Collaborators</span>
     		</h3>
     	</div>
 		 <div class="col-md-5 ">
@@ -35,11 +35,10 @@
 	      			<button class="btn btn-default " ng-click="taskFilter = {priority: 'Medium'}">Medium</button>
 				</div>
 		</div>
-		<div class="col-md-4 ">
-		<h3><span style="color":"black";"font-weight":"bold">Task Deadlines</span></h3>
+		<div class="col-md-3 ">
+		<h5>Date<input type="date" name="Date"></i></span></h5>
 		</div>
 	</div>
-</div>
 
  
 <div class="row border: 2px solid;">  
@@ -72,9 +71,14 @@
     
     <div class="col-md-3">
         <span ng-repeat="coordinator in details.tasks | filter:taskFilter">
-   			<span>Created Date:{{coordinator.createdOn}}</span>
-   			 <span>Due Date:{{coordinator.dueDate}}</span>
-				<span>Assign To:{{coordinator.assignTo}}</span>
+        	<span><a href=""  >Edit</a> |
+			<span><a href=""  >Complete</a> |
+			<span><a href=""  >Close</a> <br/>
+   		<h5>	<span>Created Date:{{coordinator.createdOn}}</span><br/>
+   			 <span>Due Date:{{coordinator.dueDate}}</span><br/>
+				<span>Assign To:{{coordinator.assignedTo}}</span>
+			</h5>
+				<br/>
   	  	</span>    
     </div>      
     </div>   
